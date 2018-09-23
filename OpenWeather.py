@@ -59,25 +59,21 @@ def data_organizer(raw_api_dict):
 
 
 def data_output(data):
-    m_symbol = '\xb0' + 'C'
-    print('---------------------------------------')
-    print('Current weather in: {}, {}:'.format(data['city'], data['country']))
-    print(data['temp'], m_symbol, data['sky'])
-    print('Max: {}, Min: {}'.format(data['temp_max'], data['temp_min']))
-    print('')
-    print('Wind Speed: {}, Degree: {}'.format(data['wind'], data['wind_deg']))
-    print('Humidity: {}'.format(data['humidity']))
-    print('Cloud: {}'.format(data['cloudiness']))
-    print('Pressure: {}'.format(data['pressure']))
-    print('---------------------------------------')
     iTemp = data['temp']
     fWindSpeed = data['wind']
     fHumidity = data['humidity']
     fCloud = data['cloudiness']
-    fPressure = data['pressure']
+    # Sky dictionary
+    dSky = {'Clear' : 0 , 'Clouds' : 0.5  }
     sSky = data['sky']
+    if sSky in dSky:
+        iSky = dSky[sSky]
+    else:
+        iSky = 1
     
-    lWeatherData = [iTemp , fWindSpeed , fHumidity , fCloud , fPressure , sSky]
+    #Cloud variable:
+    
+    lWeatherData = [iTemp , fWindSpeed , fHumidity , fCloud , iSky]
     
     return lWeatherData
     
