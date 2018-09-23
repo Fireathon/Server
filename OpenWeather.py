@@ -63,6 +63,7 @@ def data_output(data):
     fWindSpeed = data['wind']
     fHumidity = data['humidity']
     fCloud = data['cloudiness']
+    fPressure = data['pressure']
     # Sky dictionary
     dSky = {'Clear' : 0 , 'Clouds' : 0.5  }
     sSky = data['sky']
@@ -73,7 +74,7 @@ def data_output(data):
     
     #Cloud variable:
     
-    lWeatherData = [iTemp , fWindSpeed , fHumidity , fCloud , iSky]
+    lWeatherData = [iTemp , fWindSpeed , fHumidity , fCloud , iSky , fPressure]
     
     return lWeatherData
     
